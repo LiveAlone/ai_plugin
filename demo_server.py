@@ -11,6 +11,7 @@ CORS(app, resources={r"/*": {"origins": "https://yiyan.baidu.com"}})
 
 wordbook = []
 
+
 def make_json_response(data, status_code=200):
     response = make_response(json.dumps(data), status_code)
     response.headers["Content-Type"] = "application/json"
@@ -92,11 +93,10 @@ async def openapi_spec():
         return text, 200, {"Content-Type": "text/yaml"}
 
 
-
-
 @app.route('/')
 def index():
     return 'welcome to my webpage!'
 
+
 if __name__ == '__main__':
-    app.run(debug=True, host='127.0.0.1', port=8081)
+    app.run(debug=True, host='127.0.0.1', port=80)
